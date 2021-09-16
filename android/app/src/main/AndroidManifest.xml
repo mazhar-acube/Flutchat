@@ -1,0 +1,184 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="stllpt.com.flutchat">
+
+    <!-- The INTERNET permission is required for development. Specifically,
+         flutter needs it to communicate with the running application
+         to allow setting breakpoints, to provide hot reload, etc.
+    -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- io.flutter.app.FlutterApplication is an android.app.Application that
+         calls FlutterMain.startInitialization(this); in its onCreate method.
+         In most cases you can leave this as-is, but you if you want to provide
+         additional functionality it is fine to subclass or reimplement
+         FlutterApplication and put your custom class here. -->
+    <application
+        android:name="io.flutter.app.FlutterApplication"
+        android:label="flutchat"
+        android:icon="@mipmap/ic_launcher">
+        <activity android:name=".FirstActivity"
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".VideoActivity"
+            android:theme="@style/AppTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density"
+            android:hardwareAccelerated="true"
+            android:label="Video Call"
+            android:windowSoftInputMode="adjustResize">
+            <!-- This keeps the window background of the activity showing
+                 until Flutter renders its first frame. It can be removed if
+                 there is no splash screen (such as the default splash screen
+                 defined in @style/LaunchTheme). -->
+            <meta-data
+                android:name="io.flutter.app.android.SplashScreenUntilFirstFrame"
+                android:value="true" />
+            <meta-data
+                android:name="flutterEmbedding"
+                android:value="1" />
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- <activity android:name="stllpt.com.flutchat.ui.InitAuthSDKActivity"
+            android:label="@string/this_app_name"
+            android:configChanges="screenSize|orientation|keyboardHidden|keyboard"
+            android:screenOrientation="portrait"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> -->
+
+        <activity android:name="stllpt.com.flutchat.ui.InitAuthSDKActivity"
+            android:label="@string/this_app_name"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <activity android:name=".ui.APIUserStartJoinMeetingActivity"
+            android:label="@string/this_app_name"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.LoginUserStartJoinMeetingActivity"
+            android:label="@string/this_app_name"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="stllpt.com.flutchat.ui.EmailUserLoginActivity"
+            android:label="@string/this_app_name"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="stllpt.com.flutchat.ui.SSOUserLoginActivity"
+            android:label="@string/this_app_name"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="stllpt.com.flutchat.otherfeatures.MyInviteActivity"
+            android:label="@string/invite_acitivity_name"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <intent-filter>
+                <action android:name="stllpt.com.flutchat.intent.action.MeetingInvite" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="stllpt.com.flutchat.otherfeatures.MyWaitJoinActivity"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <!--            <intent-filter>
+                            <action android:name="us.zoom.sdkexample.intent.action.JoinBeforeHost" />
+                            <category android:name="android.intent.category.DEFAULT" />
+                        </intent-filter>-->
+        </activity>
+
+        <activity android:name="stllpt.com.flutchat.otherfeatures.MyCallMeByPhoneActivity"
+            android:icon="@drawable/ic_launcher"
+            android:theme="@style/ZMTheme.MainWindow" >
+            <!--            <intent-filter>
+                            <action android:name="us.zoom.sdkexample.intent.action.CallMyPhone" />
+                            <category android:name="android.intent.category.DEFAULT" />
+                        </intent-filter>-->
+        </activity>
+
+        <activity
+            android:name="stllpt.com.flutchat.inmeetingfunction.customizedmeetingui.MyMeetingActivity"
+            android:configChanges="screenSize"
+            android:theme="@style/ZMTheme.SubWindow"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ui.MeetingSettingActivity"
+            android:configChanges="screenSize"
+            android:theme="@style/ZMTheme.SubWindow"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".inmeetingfunction.customizedmeetingui.RawDataMeetingActivity"
+            android:configChanges="screenSize|orientation|keyboardHidden|keyboard"
+            android:theme="@style/ZMTheme.SubWindow"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.QAActivity" />
+        <activity android:name=".ui.BreakoutRoomsAdminActivity"
+            android:configChanges="screenSize"
+            android:theme="@style/ZMTheme.SubWindow"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.BoEditActivity"
+            android:configChanges="screenSize"
+            android:theme="@style/ZMTheme.SubWindow"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="stllpt.com.flutchat.inmeetingfunction.zoommeetingui.CustomZoomUIActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@style/ZMTheme.SubWindow"/>
+
+    </application>
+</manifest>
